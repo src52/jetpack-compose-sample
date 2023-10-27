@@ -13,9 +13,10 @@ This project showcases:
 
 A second card below the Stats card displays some text that you can scroll through while the request is running.
 
-# Screenshots
+# Media
 
-![Default interface](images%2Fimg_3_proc.png)
-![Loading](images%2Fimg_4_proc.png)
-![Loading with separate card open](images%2Fimg_5_proc.png)
-[Demo.webm](images%2Fvideo.webm)
+[video.mp4](images%2Fvideo.mp4)
+
+![img_3_proc.jpg](images%2Fimg_3_proc.jpg)
+![img_4_proc.jpg](images%2Fimg_4_proc.jpg)
+![img_5_proc.jpg](images%2Fimg_5_proc.jpg)
