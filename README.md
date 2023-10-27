@@ -14,6 +14,6 @@ A second card below the Stats card displays some text that you can scroll throug
 
 # Screenshots
 
-![img_3.png](..%2Fimages%2Fimg_3.png)
-![img_4.png](..%2Fimages%2Fimg_4.png)
-![img_5.png](..%2Fimages%2Fimg_5.png)
+![img_3.png](images\img_3.png)
+![img_4.png](images\img_4.png)
+![img_5.png](images\img_5.png)
