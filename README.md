@@ -15,11 +15,8 @@ A second card below the Stats card displays some text that you can scroll throug
 
 # Media
 
-
-
 https://github.com/src52/jetpack-compose-sample/assets/17970489/00549a06-2a49-48ac-a59a-f59934da66ba
 
-[video.mp4](images%2Fvideo.mp4)
 ![img_3_proc.jpg](images%2Fimg_3_proc.jpg)
 ![img_4_proc.jpg](images%2Fimg_4_proc.jpg)
 ![img_5_proc.jpg](images%2Fimg_5_proc.jpg)
