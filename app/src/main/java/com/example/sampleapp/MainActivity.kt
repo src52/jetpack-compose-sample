@@ -8,14 +8,18 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons.Filled
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -26,6 +30,7 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -115,7 +120,6 @@ fun StatsCardContent(
         StatRow("Request State", requestState)
     }
 }
-
 /**
  * Renders a card to display information about the app's state.
  */
@@ -128,7 +132,7 @@ fun StatsCard(buttonState: State<ButtonState>, requestState: State<RequestState>
             containerColor = MaterialTheme.colorScheme.surface
         ),
         modifier = Modifier
-            .padding(24.dp)
+            .padding(horizontal = 24.dp, vertical = 24.dp)
             .fillMaxWidth()
 
     ) {
@@ -151,9 +155,11 @@ fun RequestButton(
 ) {
     val composableScope = rememberCoroutineScope()
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+
+
     ) {
         Button(
             shape = CircleShape,
@@ -181,24 +187,34 @@ fun RequestButton(
 fun LandingScreen(
     mainViewModel: MainViewModel = viewModel(),
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .animateContentSize()
-            .background(MaterialTheme.colorScheme.background),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        StatsCard(
-            buttonState = mainViewModel.buttonState.collectAsState(),
-            requestState = mainViewModel.requestState.collectAsState()
-        )
+    Scaffold(modifier = Modifier.fillMaxSize(),
+        content = {
+            Box(modifier = Modifier.padding(it)) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .animateContentSize()
+                        .background(MaterialTheme.colorScheme.background),
+                    verticalArrangement = Arrangement.Top,
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
 
+                    StatsCard(
+                        buttonState = mainViewModel.buttonState.collectAsState(),
+                        requestState = mainViewModel.requestState.collectAsState()
+                    )
+                    BookCard()
+                }
+            }
+
+        },
+        bottomBar = {
         RequestButton(
             mockRequest = { mainViewModel.executeMockRequest() },
             buttonState = mainViewModel.buttonState.collectAsState()
         )
-    }
+    })
+
 }
 
 @Preview(
