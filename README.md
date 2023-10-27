@@ -1,12 +1,13 @@
 # Jetpack Compose Sample Application
 
+This is an Android app written in Kotlin, using the Jetpack Compose toolkit.
+
 ## Features
 This project showcases:
 
-- Android app design using Kotlin and the Jetpack Compose toolkit.
+- Material Design 3
 - Making async requests that don't block the main thread.
-- Properly managing app state with StateFlow
-- Separation of concerns between the UI design and it's state using ViewModels.
+- Separation of concerns between the UI design and state using ViewModels and StateFlow.
 - Designing UI components that react to state changes in real time.
 - Modular UI design, where each component is separate and only has access to data it needs.
 
